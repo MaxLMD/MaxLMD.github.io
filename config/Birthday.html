@@ -31,13 +31,14 @@
 			}
 		})
 	</script>
-
 	<br> <br> <br> <br> <br>
 	<div id="card">
 		<div id="card-inside">
 			<div class="wrap" id="wrap">
 				<center><p class="animated infinite wobble"><b><u>Happy Birthday!</b></u></p><center>
 				<i class="em-svg em-blush"></i>
+				<p id="ptext" align="center">
+				<p id="psign" align="center" class="signed">
 			</div>
 		</div>
 		<div id="card-front">
@@ -136,17 +137,8 @@ else{
 }
 document.getElementById("getjs").setAttribute("src","./text/"+md5(token)+".js");
 setTimeout(`
-var afterDecrypt = CryptoJS.DES.decrypt(text, CryptoJS.enc.Utf8.parse(token), {mode: CryptoJS.mode.ECB,
-padding: CryptoJS.pad.Pkcs7}).toString(CryptoJS.enc.Utf8);
-var ptext=document.createElement("p");
-ptext.innerText=afterDecrypt;
-ptext.align="center";
-document.getElementById("wrap").appendChild(ptext);
-var psign=document.createElement("p");
-psign.class="signed";
-psign.align="center";
-psign.innerText='Yours Sincerely\\nGC';
-document.getElementById("wrap").appendChild(psign);
+document.getElementById("ptext").innerText=CryptoJS.DES.decrypt(text, CryptoJS.enc.Utf8.parse(token), {mode: CryptoJS.mode.ECB,padding: CryptoJS.pad.Pkcs7}).toString(CryptoJS.enc.Utf8);;
+document.getElementById("psign").innerText='Yours Sincerely\\nGC';
 `,2800);
 </script>
 </body>
