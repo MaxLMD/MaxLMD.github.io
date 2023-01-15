@@ -27,7 +27,7 @@ canvas {
 }
 </style>
 <body>
-	<img id="hello" type="hidden">
+	<img id="hello" onerror="document.getElementById('hello').remove();">
 	<div style="visibility:visible">
 		<audio loop>
 			<source src="./config/assets/fireworks.mp3" type="audio/mpeg">
