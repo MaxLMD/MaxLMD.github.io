@@ -131,10 +131,6 @@ if(getCookie("token") != "undefined" && getCookie("token") != ""){
     var token = md5(getCookie("token"));
     console.log("token in cookie");
 }
-else if (url.indexOf("token") != -1){
-    var token = $_GET['token'];
-    console.log("token in url");
-}
 else{
 	location.href = '../index.html';
 }
